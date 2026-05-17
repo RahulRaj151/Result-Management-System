@@ -1,0 +1,14 @@
+{
+  "name": "student-result-management-system",
+  "version": "1.0.0",
+  "description": "Student Result Management System with Node.js and EJS",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node app.js"
+  },
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.19.2"
+  }
+}
