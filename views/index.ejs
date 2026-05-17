@@ -1,0 +1,47 @@
+<%- include('partials/header') %>
+
+<div class="actions">
+  <a href="/students/new" class="btn">Add Student</a>
+</div>
+
+<% if (!students.length) { %>
+  <p>No student records available. Add one to get started.</p>
+<% } else { %>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Roll No</th>
+        <th>Math</th>
+        <th>Science</th>
+        <th>English</th>
+        <th>Total</th>
+        <th>Average</th>
+        <th>Grade</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% students.forEach((student) => { %>
+        <tr>
+          <td><%= student.name %></td>
+          <td><%= student.rollNo %></td>
+          <td><%= student.marks.math %></td>
+          <td><%= student.marks.science %></td>
+          <td><%= student.marks.english %></td>
+          <td><%= student.total %></td>
+          <td><%= student.average %></td>
+          <td><strong><%= student.grade %></strong></td>
+          <td>
+            <a class="btn secondary" href="/students/<%= student.id %>/edit">Edit</a>
+            <form action="/students/<%= student.id %>/delete" method="POST" style="display:inline;">
+              <button class="btn danger" type="submit" onclick="return confirm('Delete this record?')">Delete</button>
+            </form>
+          </td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+<% } %>
+
+<%- include('partials/footer') %>

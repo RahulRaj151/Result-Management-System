@@ -1,0 +1,35 @@
+<%- include('partials/header') %>
+
+<h2><%= title %></h2>
+
+<% if (errors.length) { %>
+  <div class="error-box">
+    <ul>
+      <% errors.forEach((error) => { %><li><%= error %></li><% }) %>
+    </ul>
+  </div>
+<% } %>
+
+<form action="<%= action %>" method="POST" class="form-grid">
+  <label>Name
+    <input type="text" name="name" value="<%= student.name %>" required />
+  </label>
+  <label>Roll Number
+    <input type="text" name="rollNo" value="<%= student.rollNo %>" required />
+  </label>
+  <label>Math
+    <input type="number" min="0" max="100" step="0.01" name="math" value="<%= student.marks.math %>" required />
+  </label>
+  <label>Science
+    <input type="number" min="0" max="100" step="0.01" name="science" value="<%= student.marks.science %>" required />
+  </label>
+  <label>English
+    <input type="number" min="0" max="100" step="0.01" name="english" value="<%= student.marks.english %>" required />
+  </label>
+  <div class="row">
+    <button class="btn" type="submit">Save</button>
+    <a href="/students" class="btn secondary">Cancel</a>
+  </div>
+</form>
+
+<%- include('partials/footer') %>
